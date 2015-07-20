@@ -32,3 +32,6 @@
     (if (not indent-tabs-mode)
       (untabify (point-min) (point-max)))
     nil ))
+
+;; disable scrollbars
+(scroll-bar-mode -1)
