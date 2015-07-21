@@ -9,7 +9,7 @@
 
 ;; dependencies
 (prelude-require-packages '(solarized-theme))
-(prelude-require-packages '(rspec-mode))
+(prelude-require-packages '(inf-ruby rspec-mode))
 
 ;; visuals
 (set-default-font "Monospace 9")
@@ -32,6 +32,12 @@
     (if (not indent-tabs-mode)
       (untabify (point-min) (point-max)))
     nil ))
+
+;; time whitespace at the end
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; needed to use binding.pry in rspec-mode
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;; disable scrollbars
 (scroll-bar-mode -1)
